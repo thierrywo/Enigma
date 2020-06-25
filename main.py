@@ -32,3 +32,11 @@ while True:
   else: 
     print("He is niet zo moeilijk. Je hoeft alleen maar een nummer in te vullen en je mag zelfs nummer 1 tot 26 kiezen")
 
+while True: 
+  antwoord = input("Nog een boodschap encrypten? (Vul in ja of nee)")
+  if antwoord.lower("ja"): 
+    break 
+  
+  elif antwoord.lower("nee"): 
+    print("Nou dan niet hoor, tieft dan maar een pleurisend op")
+    exit 
