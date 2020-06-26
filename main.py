@@ -57,7 +57,7 @@ class enigma:
     return str.join("", gecodeerde_tekst)  
 
 
-tecoderenzin = input("Welke boodschap wil je encrypten?")
+tecoderenzin = input("Welke boodschap wil je encrypten?\n")
 
 while True:
   try: 
@@ -92,14 +92,16 @@ while True:
     
 x = enigma(a, b, c)
 encrypt = x.tekst_input(tecoderenzin)
-print("Encrypte tekst:", encrypt)
+print("\nEncrypte tekst:", encrypt)
 
-#Afsluiting
+
 while True: 
-  antwoord = input("Nog een boodschap encrypten? (Vul in ja of nee)")
-  if antwoord.lower() == "ja" : 
-   continue 
-  # hij moet nog returnen naar start
-  elif antwoord.lower() == "nee" :
-    print("Nou dan niet hoor, tieft dan maar een pleurisend op")
-    exit() 
+  antwoord = input('\nWil je nog een boodschap encrypten? (ja of nee): \n') 
+  if antwoord.lower() == "ja": 
+    break 
+
+  elif antwoord.lower() == "nee": 
+    print("Nou dan niet hoor, tieft dan maar een pleurisend op") 
+    quit() 
+
+  else: print('Potverjandriedubbeltjes, je kan alleen ja of nee invullen, niks anders!!!')
