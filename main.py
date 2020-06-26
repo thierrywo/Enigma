@@ -59,10 +59,37 @@ class enigma:
 
 tecoderenzin = input("Welke boodschap wil je encrypten?")
 
-a = int(input("Welke setting wilt u voor rotor numero 1?")) # als je iets verkeerds invult crasht die, pff, die van mijn vorige commit was chiller maar kon daar abc niet in difine 
-b = int(input("Welke setting wilt u voor rotor numero 2?"))
-c = int(input("Welke setting wilt u voor rotor numero 3?"))
+while True:
+  try: 
+    a = int(input("\nWelke setting wilt u voor rotor numero 1?\n"))
+    if 0 >= a or a <= 26:
+      break
+    else: 
+      print("Je moet een getal kiezen en niks anders. Kies dus een getal tussen 0 en 26") 
+  except ValueError: 
+    print("Dit is geen nummer hoor!")
 
+while True:
+  try: 
+    b = int(input("\nWelke setting wilt u voor rotor numero 1?\n"))
+    if 0 >= b or b <= 26:
+      break
+    else: 
+      print("Je moet een getal kiezen en niks anders. Kies dus een getal tussen 0 en 26") 
+  except ValueError: 
+    print("Dit is geen nummer hoor!")
+
+
+while True:
+  try: 
+    c = int(input("\nWelke setting wilt u voor rotor numero 1?\n"))
+    if 0 >= c or c <= 26:
+      break
+    else: 
+      print("Je moet een getal kiezen en niks anders. Kies dus een getal tussen 0 en 26") 
+  except ValueError: 
+    print("Dit is geen nummer hoor!")
+    
 x = enigma(a, b, c)
 encrypt = x.tekst_input(tecoderenzin)
 print("Encrypte tekst:", encrypt)
