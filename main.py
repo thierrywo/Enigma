@@ -59,6 +59,7 @@ class enigma:
 
 while True:   
 
+  tecoderenzin = input("Welke boodschap wil je encrypten?\n")
   while True:
    try: 
     a = int(input("\nWelke setting wilt u voor rotor numero 1?\n"))
@@ -91,7 +92,7 @@ while True:
     print("Dit is geen nummer hoor!")
     
 
-  tecoderenzin = input("\nWelke boodschap wil je encrypten?\n")
+  
 
   x = enigma(a, b, c)
   encrypt = x.tekst_input(tecoderenzin)
