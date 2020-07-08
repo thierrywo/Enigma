@@ -57,43 +57,57 @@ class enigma:
     return str.join("", gecodeerde_tekst)  
 
 
-tecoderenzin = input("Welke boodschap wil je encrypten?\n")
+while True:   
 
-while True:
-  try: 
+  while True:
+   try: 
     a = int(input("\nWelke setting wilt u voor rotor numero 1?\n"))
     if 0 >= a or a <= 26:
       break
     else: 
       print("Je moet een getal kiezen en niks anders. Kies dus een getal tussen 0 en 26") 
-  except ValueError: 
+   except ValueError: 
     print("Dit is geen nummer hoor!")
 
-while True:
-  try: 
+  while True:
+   try: 
     b = int(input("\nWelke setting wilt u voor rotor numero 2?\n"))
     if 0 >= b or b <= 26:
       break
     else: 
       print("Je moet een getal kiezen en niks anders. Kies dus een getal tussen 0 en 26") 
-  except ValueError: 
+   except ValueError: 
     print("Dit is geen nummer hoor!")
 
 
-while True:
-  try: 
+  while True:
+   try: 
     c = int(input("\nWelke setting wilt u voor rotor numero 3?\n"))
     if 0 >= c or c <= 26:
       break
     else: 
       print("Je moet een getal kiezen en niks anders. Kies dus een getal tussen 0 en 26") 
-  except ValueError: 
+   except ValueError: 
     print("Dit is geen nummer hoor!")
     
-x = enigma(a, b, c)
-encrypt = x.tekst_input(tecoderenzin)
-print("\nEncrypte tekst:", encrypt)
 
+  tecoderenzin = input("\nWelke boodschap wil je encrypten?\n")
+
+  x = enigma(a, b, c)
+  encrypt = x.tekst_input(tecoderenzin)
+  print("\nEncrypte tekst:", encrypt)
+
+
+  while True: 
+    antwoord = input('\nWil je nog een boodschap encrypten? (ja of nee): \n') 
+    if antwoord.lower() == "ja": 
+     break 
+
+    elif antwoord.lower() == "nee": 
+      print("Nou dan niet hoor, tieft dan maar een pleurisend op") 
+      quit() 
+
+    else: print('Potverjandriedubbeltjes, je kan alleen ja of nee invullen, niks anders!!!')
 
 while True: 
   antwoord = input('\nWil je nog een boodschap encrypten? (ja of nee): \n') 
