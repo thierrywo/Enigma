@@ -71,7 +71,7 @@ while True:
 
 while True:
   try: 
-    b = int(input("\nWelke setting wilt u voor rotor numero 1?\n"))
+    b = int(input("\nWelke setting wilt u voor rotor numero 2?\n"))
     if 0 >= b or b <= 26:
       break
     else: 
@@ -82,7 +82,7 @@ while True:
 
 while True:
   try: 
-    c = int(input("\nWelke setting wilt u voor rotor numero 1?\n"))
+    c = int(input("\nWelke setting wilt u voor rotor numero 3?\n"))
     if 0 >= c or c <= 26:
       break
     else: 
