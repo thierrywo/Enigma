@@ -66,6 +66,51 @@ class renigma:
     self.Rotor_b = Rotor_2
     self.Rotor_c = Rotor_3
 
+  def decode_rotordraai (self, aantaldraaien):
+    veranderde_alfabet = list(alfabet)
+    for i in range (aantaldraaien):
+      veranderde_alfabet.append (veranderde_alfabet[0])
+      veranderde_alfabet.pop(0)
+    return veranderde_alfabet
+
+  def volgende_letter(self, rotor, char) :
+    veranderde_alfabet = self.decode_rotordraai(rotor)
+    letterIndex = alfabet.index(char)
+    return veranderde_alfabet[letterIndex]
+
+
+  def rotors_draaien(self, plaats) :
+    self.Rotor_a = self.Rotor_a + 1
+
+    if(plaats % 26 == 0):
+      self.Rotor_b = self.Rotor_b + 1
+
+    if(plaats % (26*26)==0):
+      self.Rotor_c = self.Rotor_c + 1
+
+  def tekst_input2(self, tekst) :
+    tekst = tekst.lower()
+    gedecodeerde_tekst = []
+    plaats = 0
+
+
+    for char in list(tekst) :
+      if not char in alfabet :
+        gedecodeerde_tekst.append(char)
+        continue
+
+      gedecodeerde_letter = self.volgende_letter(self.Rotor_a, char)
+      gedecodeerde_letter = self.volgende_letter(self.Rotor_b, gedecodeerde_letter)
+      gedecodeerde_letter = self.volgende_letter(self.Rotor_c, gedecodeerde_letter)
+
+
+      gedecodeerde_tekst.append(gedecodeerde_letter)
+
+      self.rotors_draaien(plaats)
+      plaats = plaats + 1
+
+    return str.join("", gedecodeerde_tekst)
+
  
     
 vraagzin = input("\nWil je een boodschap encrypten of decrypten?\n")
@@ -142,8 +187,8 @@ elif vraagzin.lower() == "decrypten":
     except ValueError:
       print("Dit is geen nummer hoor!")
 
-  x = renigma(a, b, c)
-  decrypt = x.tekst_input(tedecoderenzin)
+  y = renigma(a, b, c)
+  decrypt = y.tekst_input2(tedecoderenzin)
   print("\nDecrypte tekst:", decrypt)
 
 
@@ -151,6 +196,12 @@ while True:
   antwoord = input('\nWil je nog een boodschap encrypten of decrypten? (ja of nee): \n')
   if antwoord.lower() == "ja":
     break
+
+  elif antwoord.lower() == "nee":
+    print("Nou dan niet hoor, tieft dan maar een pleurisend op")
+    quit()
+
+  else: print('Potverjandriedubbeltjes, je kan alleen ja of nee invullen, niks anders!!!')
 
   elif antwoord.lower() == "nee":
     print("Nou dan niet hoor, tieft dan maar een pleurisend op")
