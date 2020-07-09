@@ -111,100 +111,97 @@ class renigma:
 
     return str.join("", gedecodeerde_tekst)
 
- 
-    
-vraagzin = input("\nWil je een boodschap encrypten of decrypten?\n")
-if vraagzin.lower() == "encrypten":
+while True: 
+  while True:     
+    vraagzin = input("\nWil je een boodschap encrypten of decrypten?\n")
+    if vraagzin.lower() == "encrypten":
 
-  tecoderenzin = input("Welke boodschap wil je encrypten?\n")
+      tecoderenzin = input("\nWelke boodschap wil je encrypten?\n")
 
-  while True:
-    try:
-      a = int(input("\nWelke setting wilt u voor rotor numero 1?\n"))
-      if 0 >= a or a <= 26:
-       break
-      else:
-       print("Je moet een getal kiezen en niks anders. Kies dus een getal tussen 0 en 26")
-    except ValueError:
-        print("Dit is geen nummer hoor!")
+      while True:
+        try:
+          a = int(input("\nWelke setting wilt u voor rotor numero 1?\n"))
+          if 0 >= a or a <= 26:
+            break
+          else:
+            print("Je moet een getal kiezen en niks anders. Kies dus een getal tussen 0 en 26")
+        except ValueError:
+          print("Dit is geen nummer hoor!")
 
-  while True:
-   try:
-     b = int(input("\nWelke setting wilt u voor rotor numero 2?\n"))
-     if 0 >= b or b <= 26:
-       break
-     else:
-       print("Je moet een getal kiezen en niks anders. Kies dus een getal tussen 0 en 26")
-   except ValueError:
-     print("Dit is geen nummer hoor!")
-
-
-  while True:
-   try:
-     c = int(input("\nWelke setting wilt u voor rotor numero 3?\n"))
-     if 0 >= c or c <= 26:
-       break
-     else:
-       print("Je moet een getal kiezen en niks anders. Kies dus een getal tussen 0 en 26")
-   except ValueError:
-     print("Dit is geen nummer hoor!")
-
-  x = enigma(a, b, c)
-  encrypt = x.tekst_input(tecoderenzin)
-  print("\nEncrypte tekst:", encrypt)
-
-elif vraagzin.lower() == "decrypten":
-  tedecoderenzin = input("Welke boodschap wil je decrypten?\n")
-
-  while True:
-      try:
-        a = int(input("\nWelke setting had u voor rotor numero 1?\n"))
-        if 0 >= a or a <= 26:
-          break
-        else:
-          print("Dit was zeker niet het gekozen getal. Kies dus een getal tussen 0 en 26")
-      except ValueError:
-        print("Dit is geen nummer hoor!")
-
-  while True:
-      try:
-       b = int(input("\nWelke setting had u voor rotor numero 2?\n"))
-       if 0 >= b or b <= 26:
-          break
-       else:
-          print("Dit was zeker niet het gekozen getal. Kies dus een getal tussen 0 en 26")
-      except ValueError:
-       print("Dit is geen nummer hoor!")
+      while True:
+        try:
+          b = int(input("\nWelke setting wilt u voor rotor numero 2?\n"))
+          if 0 >= b or b <= 26:
+            break
+          else:
+            print("Je moet een getal kiezen en niks anders. Kies dus een getal tussen 0 en 26")
+        except ValueError:
+          print("Dit is geen nummer hoor!")
 
 
-  while True:
-    try:
-      c = int(input("\nWelke setting wilt u voor rotor numero 3?\n"))
-      if 0 >= c or c <= 26:
+      while True:
+        try:
+          c = int(input("\nWelke setting wilt u voor rotor numero 3?\n"))
+          if 0 >= c or c <= 26:
+            break
+          else:
+            print("Je moet een getal kiezen en niks anders. Kies dus een getal tussen 0 en 26")
+        except ValueError:
+          print("Dit is geen nummer hoor!")
+
+      x = enigma(a, b, c)
+      encrypt = x.tekst_input(tecoderenzin)
+      print("\nEncrypte tekst:", encrypt)
+
+    elif vraagzin.lower() == "decrypten":
+      tedecoderenzin = input("\nWelke boodschap wil je decrypten?\n")
+
+      while True:
+        try:
+          a = int(input("\nWelke setting had u voor rotor numero 1?\n"))
+          if 0 >= a or a <= 26:
+            break
+          else:
+            print("Dit was zeker niet het gekozen getal. Kies dus een getal tussen 0 en 26")
+        except ValueError:
+          print("Dit is geen nummer hoor!")
+
+      while True:
+        try:
+          b = int(input("\nWelke setting had u voor rotor numero 2?\n"))
+          if 0 >= b or b <= 26:
+            break
+          else:
+            print("Dit was zeker niet het gekozen getal. Kies dus een getal tussen 0 en 26")
+        except ValueError:
+          print("Dit is geen nummer hoor!")
+
+
+      while True:
+        try:
+          c = int(input("\nWelke setting wilt u voor rotor numero 3?\n"))
+          if 0 >= c or c <= 26:
+            break
+          else:
+            print("Dit was zeker niet het gekozen getal. Kies dus een getal tussen 0 en 26")
+        except ValueError:
+          print("Dit is geen nummer hoor!")
+
+      y = renigma(a, b, c)
+      decrypt = y.tekst_input2(tedecoderenzin)
+      print("\nDecrypte tekst:", decrypt)
+
+    else: 
+      print("\nJe kan alleen kiezen uit encrypten of decrypten. Typ dus het woord 'encrypten' om te encrypten en het woord 'decrypten' om te decrypten!!! ")
+      break
+
+    while True:
+      antwoord = input('\nWil je nog een boodschap encrypten of decrypten? (ja of nee): \n')
+      if antwoord.lower() == "ja":
         break
-      else:
-        print("Dit was zeker niet het gekozen getal. Kies dus een getal tussen 0 en 26")
-    except ValueError:
-      print("Dit is geen nummer hoor!")
 
-  y = renigma(a, b, c)
-  decrypt = y.tekst_input2(tedecoderenzin)
-  print("\nDecrypte tekst:", decrypt)
+      elif antwoord.lower() == "nee":
+        print("Nou dan niet hoor, tieft dan maar een pleurisend op")
+        quit()
 
-
-while True:
-  antwoord = input('\nWil je nog een boodschap encrypten of decrypten? (ja of nee): \n')
-  if antwoord.lower() == "ja":
-    break
-
-  elif antwoord.lower() == "nee":
-    print("Nou dan niet hoor, tieft dan maar een pleurisend op")
-    quit()
-
-  else: print('Potverjandriedubbeltjes, je kan alleen ja of nee invullen, niks anders!!!')
-
-  elif antwoord.lower() == "nee":
-    print("Nou dan niet hoor, tieft dan maar een pleurisend op")
-    quit()
-
-  else: print('Potverjandriedubbeltjes, je kan alleen ja of nee invullen, niks anders!!!')
+      else: print('Potverjandriedubbeltjes, je kan alleen ja of nee invullen, niks anders!!!')
